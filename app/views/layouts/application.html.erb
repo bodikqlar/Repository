@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <%= javascript_include_tag "application"%>
+  <%= stylesheet_link_tag 'application' %>
+</head>
+
+
+<body>
+<div id="user_nav">
+  <% if current_user %>
+
+    Logged in as <%= current_user.email %>.
+    <%= link_to "Log out", log_out_path ,:class => 'btn btn-primary'%>
+    <!-- Button trigger modal -->
+<button class="btn btn-primary " data-toggle="modal" data-target="#myModal">
+  Edit user
+</button>
+    <!-- Button trigger modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        <% provide(:title, "Edit user") %>
+<h2 id="success"></h2>
+
+<div class="row">
+<h1>Update your profile</h1>
+  <div class="span6 offset3">
+    <%= form_for(@user)  do |f| %>
+
+      <%= f.label :email %>
+      <%= f.text_field "email", "size" => 20 %> </br>
+
+      <%= f.label :password %>
+      <%= f.password_field :password %></br>
+
+      <%= f.label :firstname %>
+      <%= f.text_field "firstname", "size" => 20 %></br>
+
+      <%= f.label :lastname %>
+      <%= f.text_field "lastname", "size" => 20 %></br>
+
+    
+
+  </div>
+</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      
+        <%= f.submit "Save changes", class: "btn btn-primary" %>
+        <%end%>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal -->
+
+
+  <% elsif current_admin %>
+
+    Logged in as <%= current_admin.email %>.
+    <%= link_to "Log out", log_out_path,:class => 'btn btn-primary' %>
+     <!-- Button trigger modal -->
+<button class="btn btn-primary btn" data-toggle="modal" data-target="#myModal">
+  Edit admin
+</button>
+    <!-- Button trigger modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        <% provide(:title, "Edit user") %>
+<h2 id="success"></h2>
+
+<div class="row">
+<h1>Update your profile</h1>
+  <div class="span6 offset3">
+    <%= form_for(@admin)  do |f| %>
+
+      <%= f.label :email %>
+      <%= f.text_field "email", "size" => 20 %> </br>
+
+      <%= f.label :password %>
+      <%= f.password_field :password %></br>
+
+      <%= f.label :firstname %>
+      <%= f.text_field "firstname", "size" => 20 %></br>
+
+      <%= f.label :lastname %>
+      <%= f.text_field "lastname", "size" => 20 %></br>
+
+    
+
+  </div>
+</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      
+        <%= f.submit "Save changes", class: "btn btn-primary" %>
+        <%end%>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal -->
+  <%if current_admin.type=="SuperAdmin"%>
+    <%= link_to "Add_admin", "sign_up_admin" %>
+   <%end%>
+  <% else %>
+    <%= link_to "Sign up", sign_up_path %> or
+    <%= link_to "log in", log_in_path %>
+  <% end %>
+</div>
+
+<% flash.each do |name, msg| %>
+  <%= content_tag :div, msg, :id => "flash_#{name}" %>
+<% end %>
+
+<%=yield%>
+</body>
+</html>
+

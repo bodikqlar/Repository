@@ -1,0 +1,26 @@
+<% provide(:title, "Edit user") %>
+<h2 id="success"></h2>
+<script language="javascript" type="text/javascript" src="update.js.erb"></script>
+
+<div class="row">
+<h1>Update your profile</h1>
+  <div class="span6 offset3">
+    <%= form_for(@user)  do |f| %>
+
+      <%= f.label :email %>
+      <%= f.text_field "email", "size" => 20 %> </br>
+
+      <%= f.label :password %>
+      <%= f.password_field :password %></br>
+
+      <%= f.label :firstname %>
+      <%= f.text_field "firstname", "size" => 20 %></br>
+
+      <%= f.label :lastname %>
+      <%= f.text_field "lastname", "size" => 20 %></br>
+
+      <%= f.submit "Save changes", class: "btn-send" %>
+    <% end %>
+
+  </div>
+</div>

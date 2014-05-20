@@ -1,0 +1,34 @@
+<!Doctype html>
+<html>
+<head>
+	<script src="assets/index.admins.js" type="text/javascript"></script>
+	<script src="assets/jquery-1.11.1.js" type="text/javascript"></script>
+</head>
+<body>
+
+<%if @users!=nil%>
+<%@users.each do |user|%>
+<span>
+<ul>
+<li><%=user.email%>| <%= link_to "Delete", "delete/#{user.id}", :class => 'delete' %>|</li>
+
+</ul>
+</span>
+
+<%end%>
+<%elsif @admins!=nil%>
+<%@admins.each do |admin|%>
+<span>
+<ul>
+<li><%=admin.email%>| <%=admin.type%><%= link_to "Delete", "delete_admin/#{admin.id}", :class => 'delete' %>|</li>
+
+</ul>
+</span>
+<%end%>
+<%end%>
+
+
+
+
+</body>
+</html>
