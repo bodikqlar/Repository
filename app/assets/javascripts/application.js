@@ -11,11 +11,13 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
+//= require jquery.ui.all
 //= require jquery_ujs
 //= require bootstrap.min
 //= require_tree .
-$('document').ready(function(){
-   $('#myModal').modal();
-});
 
 
+ $(function() {
+    $( ".sortable" ).sortable();
+    $( ".sortable" ).disableSelection();
+  });

@@ -37,7 +37,7 @@ def index
 @admin = Admin.find(session[:admin_id])
 if not @admin.is_Super?
 #if @admin.type=="JustAdmin"
-	@users=User.all
+  @users = User.paginate(:page => params[:page],per_page: 2)
 
 #elsif @admin.type=="SuperAdmin"
 elsif @admin.is_Super?

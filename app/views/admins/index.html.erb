@@ -7,24 +7,27 @@
 <body>
 
 <%if @users!=nil%>
+<ul class="sortable">
 <%@users.each do |user|%>
-<span>
-<ul>
+
 <li><%=user.email%>| <%= link_to "Delete", "delete/#{user.id}", :class => 'delete' %>|</li>
 
-</ul>
-</span>
+
 
 <%end%>
+</ul>
+<%= will_paginate @users %>
 <%elsif @admins!=nil%>
+<ul class="sortable">
 <%@admins.each do |admin|%>
-<span>
-<ul>
+
+
 <li><%=admin.email%>| <%=admin.type%><%= link_to "Delete", "delete_admin/#{admin.id}", :class => 'delete' %>|</li>
 
-</ul>
-</span>
+
+
 <%end%>
+</ul>
 <%end%>
 
 
