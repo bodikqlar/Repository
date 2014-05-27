@@ -6,15 +6,19 @@ get "sign_up" => "users#new", :as => "sign_up"
 get "edit_user" => "users#edit", :as=> "edit_user"
 get "edit_admin" => "admins#edit", :as=> "edit_admin"
 get "sign_up_admin" => "admins#new", :as => "sign_up_admin"
-#get "/delete/:id" =>"users#destroy", :as=>"destroy"
 delete "/delete_admin/:id" =>"admins#destroy", :as=>"destroy"
 delete "/delete/:id" =>"users#destroy", :as=>"destroy"
-#put "update" => "users#update" :as=>"update"
+get "users" => "users#index", :as=> "users"
+get "/admins/:id" => "admins#show", :as=> "admin_show"
 root :to => "users#new"
 resources :super_admins, controller: :admins
 resources :just_admins, controller: :admins
-resources :users
-resources :admins
+resources :users do
+  collection {post :sort}
+  end
+resources :admins do
+  collection {post :sort}
+  end
 resources :sessions
 
   # The priority is based upon order of creation:

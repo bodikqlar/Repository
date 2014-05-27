@@ -18,6 +18,23 @@
 
 
  $(function() {
-    $( ".sortable" ).sortable();
-    $( ".sortable" ).disableSelection();
+ $('#sortable').sortable({
+axis: 'y',
+update: function() {
+return $.post($(this).data('update-url'), $(this).sortable('serialize'));
+}
+});
+    $( "#sortable" ).disableSelection();
+
+     $('#sortable1').sortable({
+axis: 'y',
+update: function() {
+return $.post($(this).data('update-url'), $(this).sortable('serialize'));
+}
+});
+    $( "#sortable1" ).disableSelection();
+
+ 
+
+
   });

@@ -12,3 +12,6 @@
  *= require bootstrap.min
  *= require_tree .
  */
+ul.menu li {
+	display: inline;
+}

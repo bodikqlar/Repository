@@ -19,5 +19,15 @@ module ClassMethods
         nil
       end
   end
+
+def search(search)
+  if search
+    where('name LIKE ?', "%#{search}%")
+  else
+    scoped
+  end
+end
+
+
 end 
 end

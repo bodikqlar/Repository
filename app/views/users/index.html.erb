@@ -1,0 +1,25 @@
+<!Doctype html>
+<html>
+<head>
+
+</head>
+<body>
+
+<%if @users!=nil%>
+<ul id="sortable" data-update-url="<%=sort_users_url%>">
+<%@users.each do |user|%>
+ <%= content_tag_for :li, user do%>
+<%=user.email%>| <%= link_to "Delete", "delete/#{user.id}", :class => 'delete' %>|
+<%end%>
+
+
+<%end%>
+</ul>
+<%= will_paginate @users %>
+
+<%end%>
+
+
+
+</body>
+</html>

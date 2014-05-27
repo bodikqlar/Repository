@@ -8,6 +8,9 @@
     <p>Your name is <%=@admin.firstname%></p>
     <p>Your surname is <%=@admin.lastname%></p>
    <p> Your email is <%=@admin.email%></p>
-    
+    <button class="btn btn-primary btn" data-toggle="modal" data-target="#myModal" id="button">
+  Edit admin
+</button>
+<%= render "admins/modal"%>
   </div>
 </div>

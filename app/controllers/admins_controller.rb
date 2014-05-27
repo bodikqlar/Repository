@@ -34,15 +34,9 @@ end
 
 def index
  
-@admin = Admin.find(session[:admin_id])
-if not @admin.is_Super?
-#if @admin.type=="JustAdmin"
-  @users = User.paginate(:page => params[:page],per_page: 2)
 
-#elsif @admin.type=="SuperAdmin"
-elsif @admin.is_Super?
-  @admins=Admin.all
-end
+  @admins=Admin.order("position ASC").paginate(:page => params[:page],per_page: 4)
+
 end
 
 
@@ -78,6 +72,13 @@ def destroy
     @admin=Admin.find(params[:id])
     @admin.destroy
     true
-    
+end
+
+def sort
+  #binding.pry
+  params[:admin].each_with_index do |id, index|
+     Admin.update_all({position: index+1}, {id: id})
+  end
+  render true
 end
 end
