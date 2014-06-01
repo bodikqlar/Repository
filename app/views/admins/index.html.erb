@@ -7,18 +7,10 @@
 
 
 <%if @admins!=nil%>
-<ul id="sortable1" data-update-url="<%=sort_admins_url%>">
-<%@admins.each do |admin|%>
-
-<%= content_tag_for :li, admin do%>
-<%=admin.email%>| <%=admin.type%><%= link_to "Delete", "delete_admin/#{admin.id}", :class => 'delete' %>|
+<div id="admins">
+<%= render "admins/sortable_list"%>
+</div>
 <%end%>
-
-<%end%>
-</ul>
-<%= will_paginate @admins %>
-<%end%>
-
 
 
 </body>

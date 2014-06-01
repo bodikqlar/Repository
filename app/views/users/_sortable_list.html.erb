@@ -1,0 +1,21 @@
+<script src="/assets/application.js?body=1" type="text/javascript"></script>
+<div>
+<%= sortable "email" %>
+<%= sortable "firstname" %>
+<%= sortable "lastname" %>
+<%= sortable "created_at", "Released" %>
+</div>
+<ul class="sortable" data-update-url="<%=sort_users_url%>">
+<%@users.each do |user|%>
+ <%= content_tag_for :li, user do%>
+<span><%=user.email%>|</span>
+<span><%=user.firstname%>|</span>
+<span><%=user.lastname%>|</span>
+<span><%=user.created_at%>|</span>
+<%= link_to "Delete", "delete/#{user.id}", :class => 'delete' %>|
+<%end%>
+<%end%>
+</ul>
+<%= will_paginate @users %>
+
+

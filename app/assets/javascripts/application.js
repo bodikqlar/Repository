@@ -15,26 +15,32 @@
 //= require jquery_ujs
 //= require bootstrap.min
 //= require_tree .
-
-
  $(function() {
- $('#sortable').sortable({
+ $('.sortable').sortable({
 axis: 'y',
 update: function() {
 return $.post($(this).data('update-url'), $(this).sortable('serialize'));
 }
 });
-    $( "#sortable" ).disableSelection();
-
-     $('#sortable1').sortable({
-axis: 'y',
-update: function() {
-return $.post($(this).data('update-url'), $(this).sortable('serialize'));
-}
+     
+    $( ".sortable" ).disableSelection();
+ $("#users div a, #users .pagination a").on("click", function(){
+    
+    $.getScript(this.href);
+    return false;
+ });
+ $("#admins div a, #admins .pagination a").on("click", function(){
+    
+    $.getScript(this.href);
+    return false;
+ });
+ $('#search').autocomplete({
+source: "/search_suggestions"
 });
-    $( "#sortable1" ).disableSelection();
+  
+});
 
  
 
 
-  });
+ 

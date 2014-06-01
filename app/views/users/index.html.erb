@@ -6,16 +6,14 @@
 <body>
 
 <%if @users!=nil%>
-<ul id="sortable" data-update-url="<%=sort_users_url%>">
-<%@users.each do |user|%>
- <%= content_tag_for :li, user do%>
-<%=user.email%>| <%= link_to "Delete", "delete/#{user.id}", :class => 'delete' %>|
-<%end%>
+<input type="text" name="search" id="search" size="30">
+
+<div id="users">
+ <%=render "users/sortable_list"%>
+</div>
 
 
-<%end%>
-</ul>
-<%= will_paginate @users %>
+
 
 <%end%>
 
