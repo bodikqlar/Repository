@@ -1,3 +1,4 @@
+
 <!Doctype html>
 <html>
 <head>
@@ -7,10 +8,18 @@
 
 
 <%if @admins!=nil%>
-<div id="admins">
-<%= render "admins/sortable_list"%>
-</div>
+<ul class="sortable" data-update-url="<%=sort_admins_url%>">
+<%@admins.each do |admin|%>
+
+<%= content_tag_for :li, admin do%>
+<%=admin.email%>| <%=admin.type%><%= link_to "Delete", "delete_admin/#{admin.id}", :class => 'delete' %>|
 <%end%>
+
+<%end%>
+</ul>
+<%= will_paginate @admins %>
+<%end%>
+
 
 
 </body>

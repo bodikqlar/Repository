@@ -15,6 +15,8 @@
 //= require jquery_ujs
 //= require bootstrap.min
 //= require_tree .
+
+
  $(function() {
  $('.sortable').sortable({
 axis: 'y',
@@ -22,25 +24,28 @@ update: function() {
 return $.post($(this).data('update-url'), $(this).sortable('serialize'));
 }
 });
-     
-    $( ".sortable" ).disableSelection();
- $("#users div a, #users .pagination a").on("click", function(){
-    
-    $.getScript(this.href);
-    return false;
- });
- $("#admins div a, #admins .pagination a").on("click", function(){
-    
-    $.getScript(this.href);
-    return false;
- });
- $('#search').autocomplete({
-source: "/search_suggestions"
-});
-  
-});
+    $( "#sortable" ).disableSelection();
 
+    
+$("#users a, #users .pagination a").on("click", function() {
+    $.getScript(this.href);
+    return false;
+  });
+
+// $("#products_search input").bind('textchange', function(){
+// 	var search_input = $("#products_search input").val();
+
+// 	if (search_input.length>2 && search_input.length<15){
+// 		 $.get($("#products_search").attr("action"), $("#products_search").serialize(), null, "script");
+//     return false;
+// 	}
+// });
+  $("#products_search input").keyup(function() {
+    $.get($("#products_search").attr("action"), $("#products_search").serialize(), null, "script");
+   return false;
+  });
+ 
  
 
 
- 
+  });

@@ -1,0 +1,29 @@
+commit 9f26ecae49c01d6cf27b006458d4d1805ba0a557
+Author: Bodik <qlarmore@gmail.com>
+Date:   Sun Jun 1 20:12:41 2014 +0400
+
+    Added first basic autocomplete
+
+commit 16cfaf305e8dd547c7547f4787bcdcd61be720f4
+Author: Bodik <qlarmore@gmail.com>
+Date:   Tue May 27 13:43:02 2014 +0400
+
+    Added sort, fixed Restfull architectrure.
+
+commit 41d4fba0ba8e0acbcaa1cb5100e2a95388981505
+Author: Bodik <qlarmore@gmail.com>
+Date:   Thu May 22 17:34:45 2014 +0400
+
+    Add will paginate, sortable
+
+commit 6628a815ea4ebd0bf3b385d38d2ff6096c4f297c
+Author: Bodik <qlarmore@gmail.com>
+Date:   Thu May 22 12:14:07 2014 +0400
+
+    first commit
+
+commit 307b94b0ced3e09e5b77fde9a046d2c595efdcf4
+Author: Bodik <qlarmore@gmail.com>
+Date:   Tue May 20 16:09:54 2014 +0400
+
+    RESULTS

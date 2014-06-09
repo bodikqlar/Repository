@@ -11,14 +11,23 @@ class Admin < ActiveRecord::Base
    include ModelMethods
 
   def is_Super?
-    
-      
     if type=="SuperAdmin"
     	true
     else 
     	false
     end
+  end
 
+    def is_Just?
+    if type=="JustAdmin"
+      true
+    else 
+      false
+    end
+  end
+  
+ def is_User?
+     false
   end
   
 

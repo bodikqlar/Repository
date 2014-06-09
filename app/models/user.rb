@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
-  searchkick  
+  
   attr_accessible :email, :password, :password_confirmation, :firstname, :lastname
  attr_accessor :password
+ 
   before_save :encrypt_password 
   before_update :encrypt_password
   validates_confirmation_of :password
@@ -14,5 +15,11 @@ class User < ActiveRecord::Base
  def is_User?
      true
   end
+   def is_Super?
+     false
+  end
 
+def is_Just?
+     false
+  end
 end

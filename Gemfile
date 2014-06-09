@@ -1,14 +1,15 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.9'
-gem "searchkick"
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'mysql2'
-gem 'cancan'
+#gem 'mysql2'
+#gem 'cancan' 
+gem 'pg' 
 
-gem 'activerecord-mysql-adapter'
+#gem 'activerecord-mysql-adapter'
 gem 'pry'
 
 # Gems used only for assets and not required
@@ -27,7 +28,7 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem "bcrypt-ruby", :require => "bcrypt"
 gem 'will_paginate', '~> 3.0'
-gem 'rack-mini-profiler'
+
 
 
 # To use ActiveModel has_secure_password

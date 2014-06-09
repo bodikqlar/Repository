@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-helper_method :sort_column, :sort_direction
+   helper_method :sort_column, :sort_direction
+
 def new
   @user = User.new
 end
@@ -38,9 +39,10 @@ def destroy
 end
 
 def index
+    
     #@users = User.order('position ASC').paginate(:page => params[:page],per_page: 4)
-    #@users = User.order('sort_column + " " + sort_direction').paginate(:page => params[:page],per_page: 4)
-    @users = User.order(sort_column + " " + sort_direction).paginate(:page => params[:page],per_page: 4)
+    @users = User.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 5, :page => params[:page])
+
 end
 
 def sort
@@ -49,17 +51,15 @@ def sort
   end
   render true
 end
-
- private
+  
+  private
+  
   def sort_column
-  #@admin = Admin.find(session[:admin_id])
- # @admin.update_attribute(:sort_type, params[:sort])
-   User.column_names.include?(params[:sort]) ? params[:sort] : "position"
+    User.column_names.include?(params[:sort]) ? params[:sort] : "position"
   end
   
   def sort_direction
     %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
-
   end
 
 end

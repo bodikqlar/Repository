@@ -5,24 +5,27 @@
 #   gem 'sqlite3'
 development:
   adapter: postgresql
-  encoding: unicode
+  encoding: utf8
+  reconnect: false
   database: regis_development
   pool: 5
-  username: bodik
+  username: root
   password:
  
 test:
   adapter: postgresql
-  encoding: unicode
+  encoding: utf8
+  reconnect: false
   database: regis_test
   pool: 5
-  username: bodik
+  username: root
   password:
 
 production:
   adapter: postgresql
-  encoding: unicode
+  encoding: utf8
+  reconnect: false
   database: regis_production
   pool: 5
-  username: bodik
+  username: root
   password:
