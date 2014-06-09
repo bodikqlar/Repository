@@ -5,10 +5,11 @@ gem 'rails', '3.2.9'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'mysql2'
-gem 'cancan'
+#gem 'mysql2'
+#gem 'cancan' 
+gem 'pg' 
 
-gem 'activerecord-mysql-adapter'
+#gem 'activerecord-mysql-adapter'
 gem 'pry'
 
 # Gems used only for assets and not required
@@ -24,7 +25,12 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 gem "bcrypt-ruby", :require => "bcrypt"
+gem 'will_paginate', '~> 3.0'
+gem 'rails_12factor', group: :production
+
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

@@ -28,6 +28,7 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem "bcrypt-ruby", :require => "bcrypt"
 gem 'will_paginate', '~> 3.0'
+gem 'rails_12factor', group: :production
 
 
 
