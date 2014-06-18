@@ -7,11 +7,12 @@
 
 
 <%if @users!=nil%>
-<%= form_tag users_path, :method => 'get', :id => "products_search" do %>
+<%= form_tag users_path, :method => 'get', :class => "products_search" do %>
   <p>
     <%= text_field_tag :search, params[:search] %>
     <%= submit_tag "Search", :name => nil %>
   </p>
+
   <div id="users"><%= render "users/sortable_list"%>
 
   </div>

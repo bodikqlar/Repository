@@ -46,17 +46,24 @@ $("#admins a, #admins .pagination a").on("click", function() {
 //     return false;
 // 	}
 // });
-  $("#products_search input").keyup(function() {
-    $.get($("#products_search").attr("action"), $("#products_search").serialize(), null, "script");
-   return false;
-  });
+  // $("#products_search input").keyup(function() {
+  //   $.get($("#products_search").attr("action"), $("#products_search").serialize(), null, "script");
+  //  return false;
+  // });
 
-  $("#products_search1 input").keyup(function() {
-    $.get($("#products_search1").attr("action"), $("#products_search1").serialize(), null, "script");
-   return false;
-  });
- 
- 
 
+ 
+$('.products_search input').bind('textchange', function () {
+
+var input_search = $("#search").val();
+
+if (input_search.length > 2 )
+{
+ $.get($(".products_search").attr("action"), $(".products_search").serialize(), null, "script");
+   return false; 
+
+}
+
+});
 
   });

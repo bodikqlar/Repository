@@ -30,5 +30,12 @@ class Admin < ActiveRecord::Base
      false
   end
   
+  def self.search(search)
+  if search
+    where('email LIKE ?', "%#{search}%")
+  else
+    scoped
+  end
+end
 
 end

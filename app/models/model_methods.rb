@@ -20,13 +20,13 @@ module ClassMethods
       end
   end
 
-def search(search)
-  if search
-    where('email LIKE ?', "%#{search}%")
-  else
-    scoped
-  end
-end
+# def search(search)
+#   if search
+#     where('email LIKE ?', "%#{search}%")
+#   else
+#     scoped
+#   end
+# end
 
 
 end 

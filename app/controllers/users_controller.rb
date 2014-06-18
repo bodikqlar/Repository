@@ -41,8 +41,11 @@ end
 def index
     
     #@users = User.order('position ASC').paginate(:page => params[:page],per_page: 4)
-    @users = User.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 5, :page => params[:page])
-
+    #@users = User.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 5, :page => params[:page])
+@search = User.search do
+  fulltext params[:search]
+end
+@users=@search.results
 end
 
 def sort

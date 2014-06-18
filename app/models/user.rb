@@ -12,6 +12,10 @@ class User < ActiveRecord::Base
   
  include ModelMethods
  
+  searchable do
+    text :email, :firstname
+  end
+
  def is_User?
      true
   end
