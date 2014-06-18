@@ -1,0 +1,28 @@
+<script src="/assets/application.js?body=1" type="text/javascript"></script>
+<tr>
+  <th><%= sortable "email" %></th>
+  <th><%= sortable "firstname" %></th>
+<th><%= sortable "lastname" %></th>
+<th><%= sortable "created_at" %></th>
+</tr>
+
+<ul class="sortable" data-update-url="<%=sort_admins_url%>">
+<%@admins.each do |admin|%>
+ <%= content_tag_for :li, admin do%>
+<%=admin.email%>|
+<%=admin.firstname%>
+<%=admin.lastname%>
+<%=admin.created_at%>
+
+
+ <%= link_to "Delete", "delete_admin/#{admin.id}", :class => 'delete' %>|
+<%end%>
+
+
+<%end%>
+</ul>
+
+
+
+<%= will_paginate @admins %>
+

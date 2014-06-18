@@ -1,4 +1,5 @@
 class AdminsController < ApplicationController
+   helper_method :sort_column, :sort_direction
 def new
    if current_admin
     if current_admin.type=="SuperAdmin"
@@ -35,7 +36,7 @@ end
 def index
  
 
-  @admins=Admin.order("position ASC").paginate(:page => params[:page],per_page: 4)
+  @admins=Admin.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 5, :page => params[:page])
 
 end
 
@@ -76,9 +77,29 @@ end
 
 def sort
   #binding.pry
-  params[:admin].each_with_index do |id, index|
+  if params[:just_admin].present? 
+    params[:just_admin].each_with_index do |id, index|
      Admin.update_all({position: index+1}, {id: id})
   end
   render true
 end
+
+ if params[:super_admin].present? 
+    params[:super_admin].each_with_index do |id, index|
+     Admin.update_all({position: index+1}, {id: id})
+  end
+  render true
+end
+end
+
+  
+  private
+  
+  def sort_column
+    User.column_names.include?(params[:sort]) ? params[:sort] : "position"
+  end
+  
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+  end
 end

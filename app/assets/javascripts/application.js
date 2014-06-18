@@ -18,19 +18,25 @@
 
 
  $(function() {
+ 	
  $('.sortable').sortable({
 axis: 'y',
 update: function() {
 return $.post($(this).data('update-url'), $(this).sortable('serialize'));
 }
 });
-    $( "#sortable" ).disableSelection();
+    $( ".sortable" ).disableSelection();
 
     
 $("#users a, #users .pagination a").on("click", function() {
     $.getScript(this.href);
     return false;
   });
+$("#admins a, #admins .pagination a").on("click", function() {
+    $.getScript(this.href);
+    return false;
+  });
+
 
 // $("#products_search input").bind('textchange', function(){
 // 	var search_input = $("#products_search input").val();
@@ -42,6 +48,11 @@ $("#users a, #users .pagination a").on("click", function() {
 // });
   $("#products_search input").keyup(function() {
     $.get($("#products_search").attr("action"), $("#products_search").serialize(), null, "script");
+   return false;
+  });
+
+  $("#products_search1 input").keyup(function() {
+    $.get($("#products_search1").attr("action"), $("#products_search1").serialize(), null, "script");
    return false;
   });
  

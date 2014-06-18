@@ -5,15 +5,15 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-# SuperAdmin.create(
-# firstname:"Bodik",
-# lastname:"Oshovskyi",
-# email:"qlarmore@gmail.com",
-# password:"123456",
-# password_confirmation:"123456",
+SuperAdmin.create(
+firstname:"Bodik",
+lastname:"Oshovskyi",
+email:"qlarmore@gmail.com",
+password:"123456",
+password_confirmation:"123456",
 
-# checkbox:"1"
-# 	);
+checkbox:"1"
+	);
 JustAdmin.create(
 firstname:"Bodik",
 lastname:"Oshovskyi",

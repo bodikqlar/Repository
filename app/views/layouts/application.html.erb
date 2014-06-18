@@ -38,9 +38,7 @@
   <%if current_admin.type=="SuperAdmin"%>
     <%= link_to "Add_admin", sign_up_admin_path ,:class => 'btn btn-primary'%>
    <%end%>
-  <% else %>
-    <%= link_to "Sign up", sign_up_path ,:class => 'btn btn-primary'%> or
-    <%= link_to "log in", log_in_path ,:class => 'btn btn-primary' %>
+ 
   <% end %>
 </div>
 

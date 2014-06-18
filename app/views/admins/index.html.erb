@@ -8,17 +8,19 @@
 
 
 <%if @admins!=nil%>
-<ul class="sortable" data-update-url="<%=sort_admins_url%>">
-<%@admins.each do |admin|%>
+<%= form_tag admins_path, :method => 'get', :id => "products_search1" do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+  <div id="admins"><%= render "admins/sortable_list"%>
 
-<%= content_tag_for :li, admin do%>
-<%=admin.email%>| <%=admin.type%><%= link_to "Delete", "delete_admin/#{admin.id}", :class => 'delete' %>|
-<%end%>
+  </div>
+<% end %>
 
-<%end%>
-</ul>
-<%= will_paginate @admins %>
-<%end%>
+<% end %>
+
+
 
 
 

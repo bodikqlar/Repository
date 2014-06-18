@@ -1,6 +1,6 @@
-<h1>Sign Up</h1>
 
-<%= form_for(@user) do |f| %>
+<%= form_for(@user, html: { id: "signup" })  do |f| %>
+<h1>Start your registration right now</h1>
   <% if @user.errors.any? %>
     <div class="error_messages">
       <h2>Form is invalid</h2>
@@ -12,18 +12,20 @@
     </div>
   <% end %>
   <p>
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
+
+    <%= f.text_field :email,  placeholder:  "example@email.com", required:""%>
   </p>
   <p>
-    <%= f.label :password %><br />
-    <%= f.password_field :password %>
+ 
+    <%= f.password_field :password,  placeholder:  "Choose your password", required:"" %>
   </p>
   <p>
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation %>
+  
+    <%= f.password_field :password_confirmation,  placeholder:  "Confirm password", required:"" %>
   </p>
-  <p class="button"><%= f.submit %></p>
+  <p class="button"><%= f.submit :class => "btn btn-lg btn-primary btn-block" %></p>
 <% end %>
+<a href="/log_in" class="text-center new-account">Sign in</a>
+
 
 
